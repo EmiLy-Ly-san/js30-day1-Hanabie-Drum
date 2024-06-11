@@ -1,4 +1,4 @@
-function playDrum(e) {
+function playDrumWithKeyboard(e) {
   console.log(e.keyCode);
   const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
   const key = document.querySelector(`.key[data-key="${e.keyCode}"]`);
@@ -19,5 +19,21 @@ function removeTransition(e) {
 
 const keys = document.querySelectorAll(".key");
 keys.forEach((key) => key.addEventListener("transitionend", removeTransition)); //Listen all the transitionend for the keys
+let buttonUser;
 
-window.addEventListener("keydown", playDrum);
+//play on click
+keys.forEach((key) => {
+  key.addEventListener("click", function () {
+    const keyData = key.getAttribute("data-key");
+    const audio = document.querySelector(`audio[data-key="${keyData}"]`);
+    console.log(key);
+    console.log(audio);
+    if (!audio) return; //stop function from running all together
+    audio.currentTime = 0; //rewind to the start of the sound
+    audio.play();
+    key.classList.add("playing");
+  });
+});
+
+//play wuth keyboard
+window.addEventListener("keydown", playDrumWithKeyboard);
