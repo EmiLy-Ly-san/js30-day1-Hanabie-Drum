@@ -6,6 +6,8 @@ body {
 }
 
 body {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
   display: flex;
   flex-direction: column;
   gap: 3rem;
@@ -15,10 +17,13 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  background-color: rgb(240, 206, 229);
 }
 
 .keys {
   display: flex;
+  width: 90%;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 3rem;
